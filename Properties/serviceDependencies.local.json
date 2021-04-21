@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "RentalContext"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "ReservationContext"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "TournamentContext"
+    },
+    "mssql4": {
+      "type": "mssql.local",
+      "connectionId": "EquipmentContext"
+    }
+  }
+}

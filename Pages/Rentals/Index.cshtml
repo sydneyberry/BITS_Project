@@ -1,0 +1,38 @@
+﻿@page
+@model BITS_Project.Pages.Rentals.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-6 pl-5 pr-5">
+    <div class="row mx-auto">
+        <h3 class="mx-auto">Rentals</h3>
+        <p class="ml-5 mr-5">BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read out rental policy <a href="">here</a> before making any reservations.</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Equipments/Index">View Available Equipment</a></h5>
+                    <p class="card-text mb-auto">
+                        We offer a variety of different equipment, ranging from footballs to stopwatches. Check out what's available for rent.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Rentals/Create">Create a Rental</a></h5>
+                    <p class="card-text mb-auto">
+                    Looking to rent equipment while visiting BITS? We're happy to provide the opportunity to make rent equipment in advance by filling out our online form.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
