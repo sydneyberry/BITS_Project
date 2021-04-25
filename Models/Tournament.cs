@@ -22,7 +22,7 @@ namespace BITS_Project.Models
         public Reservation ReservationID { get; set; }
 
         [Required]
-        public Employee EmpID { get; set; }
+        public int EmpID { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime DateMade { get; set; } = DateTime.UtcNow;
@@ -33,7 +33,23 @@ namespace BITS_Project.Models
         [Required]
         public Activity ActivityType { get; set; }
 
+        [Required]
+        public int MaxTeams { get; set; }
+
+        [Required]
+        public int MaxTeamSize { get; set; }
+
+        [Required]
+        public int MinTeamSize { get; set; }
+
+        [Required]
+        public Space Space { get; set; }
+
         public string Description { get; set; }
+
+
+
+        
 
     }
 }

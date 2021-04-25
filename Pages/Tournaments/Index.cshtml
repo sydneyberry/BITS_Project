@@ -49,7 +49,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].DateMade)
+                    @Html.DisplayNameFor(model => model.Tournament[0].Space)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Tournament[0].DateFor)
@@ -57,28 +57,51 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Tournament[0].ActivityType)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tournament[0].MaxTeams)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tournament[0].MaxTeamSize)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tournament[0].MinTeamSize)
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Tournament)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateMade)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateFor)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ActivityType)
-                    </td>
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Space)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateMade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActivityType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxTeams)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxTeamSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinTeamSize)
+                </td>
+
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
