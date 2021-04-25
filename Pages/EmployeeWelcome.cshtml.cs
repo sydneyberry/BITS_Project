@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BITS_Project.Pages
 {
-    public class EmployeeLoginModel : PageModel
+    public class EmployeeWelcomeModel : PageModel
     {
         public void OnGet()
         {

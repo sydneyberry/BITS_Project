@@ -4,39 +4,38 @@
 @{
     ViewData["Title"] = "Create";
 }
-<div class="container">
-    <h4>Create New Rental</h4>
-    <p>BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read out rental policy <a href="">here</a>.</p>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Rental.FirstName" class="control-label"></label>
-                    <input asp-for="Rental.FirstName" class="form-control" />
-                    <span asp-validation-for="Rental.FirstName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Rental.LastName" class="control-label"></label>
-                    <input asp-for="Rental.LastName" class="form-control" />
-                    <span asp-validation-for="Rental.LastName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Rental.PhoneNumber" class="control-label"></label>
-                    <input asp-for="Rental.PhoneNumber" class="form-control" />
-                    <span asp-validation-for="Rental.PhoneNumber" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Rental.DateFor" class="control-label"></label>
-                    <input asp-for="Rental.DateFor" class="form-control" />
-                    <span asp-validation-for="Rental.DateFor" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
-        </div>
+
+<h4>Create New Rental</h4>
+<p>BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read out rental policy <a href="">here</a>.</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Rental.FirstName" class="control-label"></label>
+                <input asp-for="Rental.FirstName" class="form-control" />
+                <span asp-validation-for="Rental.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rental.LastName" class="control-label"></label>
+                <input asp-for="Rental.LastName" class="form-control" />
+                <span asp-validation-for="Rental.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rental.PhoneNumber" class="control-label"></label>
+                <input asp-for="Rental.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Rental.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rental.DateFor" class="control-label"></label>
+                <input asp-for="Rental.DateFor" class="form-control" />
+                <span asp-validation-for="Rental.DateFor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 
