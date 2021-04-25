@@ -30,7 +30,7 @@ namespace BITS_Project.Pages.Rentals
                 return NotFound();
             }
 
-            Rental = await _context.Rentals.FirstOrDefaultAsync(m => m.ID == id);
+            Rental = await _context.Rentals.FindAsync(id);
 
             if (Rental == null)
             {
@@ -39,34 +39,25 @@ namespace BITS_Project.Pages.Rentals
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var studentToUpdate = await _context.Rentals.FindAsync(id);
+
+            if (studentToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Rental).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync<Rental>(
+                studentToUpdate,
+                "student",
+                s => s.FirstName, s => s.LastName, s => s.PhoneNumber))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RentalExists(Rental.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
         private bool RentalExists(int id)

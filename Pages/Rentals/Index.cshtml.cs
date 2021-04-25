@@ -14,6 +14,8 @@ namespace BITS_Project.Pages.Rentals
     {
         private readonly BITS_Project.Data.RentalContext _context;
 
+        
+
         public IndexModel(BITS_Project.Data.RentalContext context)
         {
             _context = context;

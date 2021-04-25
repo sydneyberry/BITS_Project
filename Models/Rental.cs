@@ -13,7 +13,7 @@ namespace BITS_Project.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
+        //[Required]
         public ICollection<Equipment> Equipments { get; set; }
 
         [Required]

@@ -13,7 +13,6 @@ namespace BITS_Project.Pages.Rentals
     public class CreateModel : PageModel
     {
         private readonly BITS_Project.Data.RentalContext _context;
-
         public CreateModel(BITS_Project.Data.RentalContext context)
         {
             _context = context;
@@ -36,15 +35,15 @@ namespace BITS_Project.Pages.Rentals
             if (await TryUpdateModelAsync<Rental>(
                 emptyRental,
                 "Rental",
-                r => r.FirstName, r => r.LastName, r => r.PhoneNumber))
+                r => r.FirstName, r => r.LastName, r => r.Equipments, r => r.PhoneNumber))
             {
                 Console.WriteLine("testing!");
                 _context.Rentals.Add(emptyRental);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");   // make a modal show up
             }
-        
-            return RedirectToPage("./Index");
+
+            return Page();      // need to add error messages
         }
     }
 }

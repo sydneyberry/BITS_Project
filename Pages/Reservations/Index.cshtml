@@ -5,62 +5,93 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Reservations</h1>
 
-<p>
-    <a asp-page="Create">Create New Reservation</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].SpaceID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].DateMade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].EndTime)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Reservation) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpaceID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateMade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndTime)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container mt-5 pl-5 pr-5">
+    <div class="row mx-auto">
+        <h1 class="mx-auto">Reservations</h1>
+        <p class="ml-5 mr-5">BITS is happy to provide a variety of different spaces and equipments available for reservation. From our track to our fields to our batting cages, we have different spaces to help you train. Please read our reservation policy <a href="">here</a> before making any reservations.</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Spaces/Index">View Available Spaces</a></h5>
+                    <p class="card-text mb-auto">
+                        We offer a variety of different fields to me you and your team's needs. Check out what's available for rent.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Reservations/Create">Create a Reservation</a></h5>
+                    <p class="card-text mb-auto">
+                        Looking to rent equipment while visiting BITS? We're happy to provide the opportunity to make reservations in advance by filling out our online form.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Reservation[0].FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Reservation[0].LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Reservation[0].SpaceID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Reservation[0].DateMade)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Reservation[0].StartTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Reservation[0].EndTime)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Reservation)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SpaceID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateMade)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndTime)
+                        </td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

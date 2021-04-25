@@ -5,44 +5,81 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container mt-5 pl-5 pr-5">
+    <div class="row mx-auto">
+        <h1 class="mx-auto">Tournaments</h1>
+        <p class="ml-5 mr-5">BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read out rental policy <a href="">here</a> before making any reservations.</p>
+    </div>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tournament[0].DateMade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tournament[0].DateFor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tournament[0].ActivityType)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Tournament) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateMade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateFor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActivityType)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Tournaments/Index">Tournament Results</a></h5>
+                    <p class="card-text mb-auto">
+                        Apart of the team or curious as to how your friend is doing? Check the results of all ongoing or past tournaments here.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Tournaments/Index">Tournament Sign-Up</a></h5>
+                    <p class="card-text mb-auto">
+                        Apart of the team or curious as to how your friend is doing? Check the results of all ongoing or past tournaments here.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-6 mx-auto">
+            <div class="no-gutters border mb-4" style="height: 100%">
+                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                    <h5 class="mx-auto"><a asp-page="/Tournaments/Create">Create a Tournament Event</a></h5>
+                    <p class="card-text mb-auto">
+                        Looking to rent equipment while visiting BITS? We're happy to provide the opportunity to make rent equipment in advance by filling out our online form.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tournament[0].DateMade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tournament[0].DateFor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tournament[0].ActivityType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Tournament)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateMade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateFor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActivityType)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,40 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BITS_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using BITS_Project.Data;
-using BITS_Project.Models;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
 
 namespace BITS_Project.Pages.Rentals
 {
     public class DeleteModel : PageModel
     {
         private readonly BITS_Project.Data.RentalContext _context;
+        private readonly ILogger<DeleteModel> _logger;
 
-        public DeleteModel(BITS_Project.Data.RentalContext context)
+        public DeleteModel(BITS_Project.Data.RentalContext context,
+                           ILogger<DeleteModel> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [BindProperty]
         public Rental Rental { get; set; }
+        public string ErrorMessage { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            Rental = await _context.Rentals.FirstOrDefaultAsync(m => m.ID == id);
+            
+            Rental = await _context.Rentals
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Rental == null)
             {
                 return NotFound();
             }
+
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ErrorMessage = String.Format("Delete {ID} failed. Try again", id);
+            }
+
             return Page();
         }
 
@@ -45,15 +56,25 @@ namespace BITS_Project.Pages.Rentals
                 return NotFound();
             }
 
-            Rental = await _context.Rentals.FindAsync(id);
+            var rental = await _context.Rentals.FindAsync(id);
 
-            if (Rental != null)
+            if (rental == null)
             {
-                _context.Rentals.Remove(Rental);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
 
-            return RedirectToPage("./Index");
+            try
+            {
+                _context.Rentals.Remove(rental);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, ErrorMessage);
+                return RedirectToAction("./Delete",
+                                     new { id, saveChangesError = true });
+            }
         }
     }
 }
