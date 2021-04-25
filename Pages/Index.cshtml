@@ -3,54 +3,47 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
-<style>
-    .jumbotron {
-        background-image: url('~/wwwroot/img/workout.jpeg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-    }
-</style>
-
-<div class="container">
-    <div class="row jumbotron">
-        <h4>Welcome to the Brookings Indoor Training Site (BITS) Website!</h4>
+    <div class="jumbotron jumbotron-fluid">
+        <h3 class="display-4 pl-3 ml-3 mr-3 bebas">
+            BITS is here to help you get moving
+        </h3>
+        <p class="pl-3 pr-3 ml-3 mr-3">
+            From equipment to fields to sporting events, the Brookings Indoor Training Site is happy to provide the space and resources for our community to be active
+        </p>
     </div>
+</div>
 
-    <div class="row mb-auto">
-        <div class="col-md-4">
-            <div class="row no-gutters border mb-4">
-                <div class="col p-4 mb-4 ">
-                    <p class="card-text">
-                        We'll add a ton of cute stuff here about BITS!
-                    </p>
+
+<div class="hero-pattern pt-5 pb-5 mb-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="~/img/workout.jpeg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="~/img/weights.jpeg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="~/img/track.jpeg" alt="Third slide">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row no-gutters border mb-4">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <p class="card-text mb-auto">
-                        You can build the application by following the steps in a series of tutorials.
+
+            <div class="col-md-6 no-gutters border bg-white" style="border-color: #568bcc" >
+                <div class="p-4 mt-4 align-middle" stlye="height: 100%">
+                    <p class="text-center mt-3" style="font-weight: 500; font-size:20px">
+                        Looking for a place to practice with your team, tournaments to compete in, or equipment to borrow as you try a new sport?
                     </p>
-                    <p>
-                        <a href="https://docs.microsoft.com/aspnet/core/data/ef-rp/intro" class="stretched-link">See the tutorial</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="row no-gutters border mb-4">
-                <div class="col p-4 d-flex flex-column">
-                    <p class="card-text mb-auto">
-                        You can download the completed project from GitHub.
-                    </p>
-                    <p>
-                        <a href="https://github.com/dotnet/AspNetCore.Docs/tree/main/aspnetcore/data/ef-rp/intro/samples" class="stretched-link">See project source code</a>
+                    <p class="text-center">
+                        BITS is the perfect place to get moving and grooving, solo or with friends. We're open 7 days a week from 9AM-8PM and would love for you stop by and rent equipment or reserve a space to practice in. 
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div>

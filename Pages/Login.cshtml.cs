@@ -30,7 +30,7 @@ namespace BITS_Project.Pages
                 return Page();
             }
 
-            if (Username.Equals("123456") && Password.Equals("helloworld"))
+            if (Username.Equals("123456") && Password.Equals("abc"))
             {
                 HttpContext.Session.SetString("username", Username);
                 return RedirectToPage("EmployeeHomepage");
