@@ -15,6 +15,8 @@ namespace BITS_Project.Data
                 return; // DB has already been seeded
             }
 
+
+
             var rentals = new Rental[]
             {
                 new Rental{FirstName="Sydney", LastName="Berry", EquipmentID=1, PhoneNumber="1234567890", DateFor=DateTime.Parse("2020-09-01")},
@@ -58,6 +60,15 @@ namespace BITS_Project.Data
 
             };
             context.Tournaments.AddRange(tournaments);
+            context.SaveChanges();
+
+            var teams = new Team[]
+            {
+                new Team{FirstName="Syd", LastName="Ber", TournamentID=1, PhoneNumber="1234567890", TeamName="COOL BUNNIES"},
+                new Team{FirstName="Jen", LastName="Nguy", TournamentID=1, PhoneNumber="1234567890", TeamName="COOL CATS"}
+
+            };          
+            context.Teams.AddRange(teams);
             context.SaveChanges();
         }
     }

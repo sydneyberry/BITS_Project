@@ -18,14 +18,17 @@ namespace BITS_Project.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Space> Spaces { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
+        public DbSet<Team> Teams { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Tournament>().ToTable("Rental");
-            modelBuilder.Entity<Tournament>().ToTable("Equipment");
-            modelBuilder.Entity<Tournament>().ToTable("Reservation");
-            modelBuilder.Entity<Tournament>().ToTable("Space");
+            modelBuilder.Entity<Rental>().ToTable("Rental");
+            modelBuilder.Entity<Equipment>().ToTable("Equipment");
+            modelBuilder.Entity<Reservation>().ToTable("Reservation");
+            modelBuilder.Entity<Space>().ToTable("Space");
             modelBuilder.Entity<Tournament>().ToTable("Tournament");
+            modelBuilder.Entity<Team>().ToTable("Team");
         }
+
     }
 }

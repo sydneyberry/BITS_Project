@@ -1,0 +1,56 @@
+﻿@page
+@model BITS_Project.Pages.Teams.CreateModel
+
+@{
+    ViewData["Title"] = "Team Sign-Up";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }
+}
+
+<h4>Team Sign-Up</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Team.TournamentID" class="control-label"></label>
+                <input asp-for="Team.TournamentID" class="form-control" />
+                <span asp-validation-for="Team.TournamentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.TeamName" class="control-label"></label>
+                <input asp-for="Team.TeamName" class="form-control" />
+                <span asp-validation-for="Team.TeamName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.FirstName" class="control-label"></label>
+                <input asp-for="Team.FirstName" class="form-control" />
+                <span asp-validation-for="Team.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.LastName" class="control-label"></label>
+                <input asp-for="Team.LastName" class="form-control" />
+                <span asp-validation-for="Team.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Team.PhoneNumber" class="control-label"></label>
+                <input asp-for="Team.PhoneNumber" class="form-control" />
+                <span asp-validation-for="Team.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
