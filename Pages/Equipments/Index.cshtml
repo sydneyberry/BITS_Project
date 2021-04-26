@@ -2,7 +2,11 @@
 @model BITS_Project.Pages.Equipments.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Equipment Index";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }
 }
 <div class="container">
     <h1>Equipment Inventory</h1>
@@ -21,7 +25,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Equipment[0].Description)
                 </th>
-                <th></th>
+                @if (Model.SignedIn == 1)
+                {
+                    <th>Actions</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -37,11 +44,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                </td>
+                @if (Model.SignedIn == 1)
+                {
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                }
             </tr>
             }
         </tbody>

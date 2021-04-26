@@ -1,8 +1,11 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
-}
+    ViewData["Title"] = "BITS";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }}
     <div class="jumbotron jumbotron-fluid">
         <h3 class="display-4 pl-3 ml-3 mr-3 bebas">
             BITS is here to help you get moving

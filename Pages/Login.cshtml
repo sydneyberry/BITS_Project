@@ -1,8 +1,11 @@
 ﻿@page
 @model BITS_Project.Pages.LoginModel
 @{
-    ViewData["Title"] = "Employee Login";
-}
+    ViewData["Title"] = "Rentals";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }}
 
 <h4 class="mx-auto">Employee Login</h4>
 <div class="row mb-12 mx-auto">

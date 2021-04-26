@@ -2,8 +2,11 @@
 @model BITS_Project.Pages.Tournaments.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
-}
+    ViewData["Title"] = "Tournament Index";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }}
 
 <div class="container mt-5 pl-5 pr-5">
     <div class="row mx-auto">
@@ -66,7 +69,10 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Tournament[0].MinTeamSize)
                 </th>
-                <th></th>
+                @if (Model.SignedIn == 1)
+                {
+                    <th>Actions</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -100,6 +106,7 @@
                         <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                     </td>
                 }
+
             </tr>
             }
         </tbody>
