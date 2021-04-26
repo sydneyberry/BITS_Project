@@ -1,6 +1,11 @@
 ﻿@page
 @model BITS_Project.Pages.ConfirmationModel
 @{
+    ViewData["Title"] = "Confirmation";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }
 }
 
 <div class="row mt-5 pt-5 text-center mx-auto">
