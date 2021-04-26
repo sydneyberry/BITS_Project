@@ -35,15 +35,15 @@ namespace BITS_Project.Data
             context.SaveChanges();
 
             // need to add start and end times
-            /*var reservations = new Reservation[]
+            var reservations = new Reservation[]
             {
-                new Reservation{FirstName="Sydney", LastName="Berry", PhoneNumber=1234567891},
-                new Reservation{FirstName="Jenny", LastName="Nguyen", PhoneNumber=1434562891},
-                new Reservation{FirstName="Noah", LastName="Fence", PhoneNumber=1432562891}
+                new Reservation{FirstName="Sydney", LastName="Berry", PhoneNumber="1234567890", SpaceID = 1},
+                new Reservation{FirstName="Jenny", LastName="Nguyen", PhoneNumber="1234567890", SpaceID = 2},
+                new Reservation{FirstName="Noah", LastName="Fence", PhoneNumber="1234567890", SpaceID = 3}
             };
-            reserve.Reservations.AddRange(reservations);
-            reserve.SaveChanges();
-            */
+            context.Reservations.AddRange(reservations);
+            context.SaveChanges();
+            
 
 
             var tournaments = new Tournament[]

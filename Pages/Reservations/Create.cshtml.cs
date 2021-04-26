@@ -44,10 +44,9 @@ namespace BITS_Project.Pages.Reservations
 
             if (await TryUpdateModelAsync<Reservation>(
                 emptyRev,
-                "Reservation",
-                x => x.FirstName, x => x.LastName))
+                "reservation",
+                x => x.SpaceID, x=> x.PhoneNumber, x => x.FirstName, x => x.LastName, x => x.EndTime, x => x.StartTime))
             {
-                //SConsole.WriteLine("testing!");
                 _context.Reservations.Add(emptyRev);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("../Confirmation");

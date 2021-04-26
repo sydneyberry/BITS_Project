@@ -13,7 +13,7 @@ namespace BITS_Project.Models
         public int ID { get; set; }
 
         [Display(Name = "BITS Area")]
-        public Space SpaceID { get; set; }
+        public int SpaceID { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
