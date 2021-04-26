@@ -21,7 +21,7 @@ namespace BITS_Project.Pages.Rentals
                                    select d;
 
             EquipmentNameSL = new SelectList(departmentsQuery.AsNoTracking(),
-                        "EquipmentName", "ID", selectedDepartment);
+                        "ID", "EquipmentName", selectedDepartment);
         }
     }
 }

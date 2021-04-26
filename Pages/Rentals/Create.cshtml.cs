@@ -22,6 +22,7 @@ namespace BITS_Project.Pages.Rentals
         public IActionResult OnGet()
         {
             PopulateEquipmentsDropDownList(_context);
+
             return Page();
         }
 
