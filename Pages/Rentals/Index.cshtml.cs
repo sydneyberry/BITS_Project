@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using BITS_Project.Data;
 using BITS_Project.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace BITS_Project.Pages.Rentals
 {
     public class IndexModel : PageModel
     {
         private readonly BITS_Project.Data.RentalContext _context;
+        public int SignedIn { get; set; }
 
-        
 
         public IndexModel(BITS_Project.Data.RentalContext context)
         {
@@ -25,6 +26,14 @@ namespace BITS_Project.Pages.Rentals
 
         public async Task OnGetAsync()
         {
+            if(HttpContext.Session.GetInt32("signed_in").GetValueOrDefault() == 0)
+            {
+                SignedIn = 0;
+            } else
+            {
+                SignedIn = (int)HttpContext.Session.GetInt32("signed_in");
+            }
+
             Rental = await _context.Rentals.ToListAsync();
         }
     }

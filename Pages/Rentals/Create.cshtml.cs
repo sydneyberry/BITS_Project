@@ -13,6 +13,7 @@ namespace BITS_Project.Pages.Rentals
     public class CreateModel : PageModel
     {
         private readonly BITS_Project.Data.RentalContext _context;
+
         public CreateModel(BITS_Project.Data.RentalContext context)
         {
             _context = context;
@@ -25,8 +26,6 @@ namespace BITS_Project.Pages.Rentals
 
         [BindProperty]
         public Rental Rental { get; set; }
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         
         public async Task<IActionResult> OnPostAsync()
         {
