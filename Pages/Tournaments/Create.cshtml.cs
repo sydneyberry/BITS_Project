@@ -44,7 +44,7 @@ namespace BITS_Project.Pages.Tournaments
 
             if(await TryUpdateModelAsync<Tournament>(
                 emptyTourn,
-                "Tournament",
+                "tournament",
                 q => q.DateFor, q => q.ActivityType, q => q.MaxTeams,
                 q => q.MaxTeamSize, q => q.MinTeamSize, q => q.SpaceID
                 ))
