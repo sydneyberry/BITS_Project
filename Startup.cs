@@ -30,18 +30,18 @@ namespace BITS_Project
         {
             services.AddRazorPages();
 
-            services.AddDbContext<RentalContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RentalContext")));
+            services.AddDbContext<BitsContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("BitsContext")));
 
 
-            services.AddDbContext<ReservationContext>(options =>
+            /*services.AddDbContext<ReservationContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ReservationContext")));
 
             services.AddDbContext<TournamentContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TournamentContext")));
 
             services.AddDbContext<EquipmentContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("EquipmentContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("EquipmentContext")));*/
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

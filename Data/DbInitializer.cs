@@ -8,9 +8,9 @@ namespace BITS_Project.Data
 {
     public class DbInitializer
     {
-        public static void Initialize(RentalContext rent, EquipmentContext equip)
+        public static void Initialize(BitsContext context)
         {
-            if(rent.Rentals.Any() || equip.Equipments.Any() )
+            if(context.Rentals.Any())
             {
                 return; // DB has already been seeded
             }
@@ -21,8 +21,8 @@ namespace BITS_Project.Data
                 new Rental{FirstName="Jenny", LastName="Nguyen", PhoneNumber="1234567890", DateFor=DateTime.Parse("2021-11-01")},
                 new Rental{FirstName="Noah", LastName="Fence", PhoneNumber="1234567890", DateFor=DateTime.Parse("2021-02-09")}
             };
-            rent.Rentals.AddRange(rentals);
-            rent.SaveChanges();
+            context.Rentals.AddRange(rentals);
+            context.SaveChanges();
 
             var equipments = new Equipment[]
             {
@@ -30,8 +30,9 @@ namespace BITS_Project.Data
                 new Equipment{EquipmentName="Football", Description="yaaaay sports", Quantity=4},
                 new Equipment{EquipmentName="Stopwatch", Description="Typically used for workouts or track & field training", Quantity=3}
             };
-            equip.Equipments.AddRange(equipments);
-            equip.SaveChanges();
+
+            context.Equipments.AddRange(equipments);
+            context.SaveChanges();
 
             // need to add start and end times
             /*var reservations = new Reservation[]

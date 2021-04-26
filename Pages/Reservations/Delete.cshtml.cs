@@ -12,9 +12,9 @@ namespace BITS_Project.Pages.Reservations
 {
     public class DeleteModel : PageModel
     {
-        private readonly BITS_Project.Data.ReservationContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public DeleteModel(BITS_Project.Data.ReservationContext context)
+        public DeleteModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

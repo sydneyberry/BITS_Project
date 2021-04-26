@@ -12,9 +12,9 @@ namespace BITS_Project.Pages.Rentals
 {
     public class DetailsModel : PageModel
     {
-        private readonly BITS_Project.Data.RentalContext _context;
+        private readonly BitsContext _context;
 
-        public DetailsModel(BITS_Project.Data.RentalContext context)
+        public DetailsModel(BitsContext context)
         {
             _context = context;
         }

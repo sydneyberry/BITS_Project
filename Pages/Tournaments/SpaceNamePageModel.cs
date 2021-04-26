@@ -13,7 +13,7 @@ namespace BITS_Project.Pages.Tournaments
     {
         public SelectList SpaceNameSL { get; set; }
 
-        public void PopulateSpaceDropDownList(TournamentContext _context,
+        public void PopulateSpaceDropDownList(BitsContext _context,
             object selectedSpace = null)
         {
             var SpaceQuery = from d in _context.Tournaments

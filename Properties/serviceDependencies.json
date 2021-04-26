@@ -2,8 +2,8 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "RentalContext"
-    },
+      "connectionId": "BitsContext"
+    }/*,
     "mssql2": {
       "type": "mssql",
       "connectionId": "ReservationContext"
@@ -15,6 +15,6 @@
     "mssql4": {
       "type": "mssql",
       "connectionId": "EquipmentContext"
-    }
+    }*/
   }
 }

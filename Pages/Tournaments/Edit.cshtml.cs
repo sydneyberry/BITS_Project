@@ -13,9 +13,9 @@ namespace BITS_Project.Pages.Tournaments
 {
     public class EditModel : PageModel
     {
-        private readonly BITS_Project.Data.TournamentContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public EditModel(BITS_Project.Data.TournamentContext context)
+        public EditModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

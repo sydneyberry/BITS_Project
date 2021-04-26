@@ -12,9 +12,9 @@ namespace BITS_Project.Pages.Equipments
 {
     public class IndexModel : PageModel
     {
-        private readonly BITS_Project.Data.EquipmentContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public IndexModel(BITS_Project.Data.EquipmentContext context)
+        public IndexModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }
