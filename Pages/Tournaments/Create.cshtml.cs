@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BITS_Project.Data;
 using BITS_Project.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace BITS_Project.Pages.Tournaments
 {
     public class CreateModel : PageModel
     {
         private readonly BITS_Project.Data.BitsContext _context;
+        public int SignedIn { get; set; }
 
         public CreateModel(BITS_Project.Data.BitsContext context)
         {
@@ -21,6 +23,15 @@ namespace BITS_Project.Pages.Tournaments
 
         public IActionResult OnGet()
         {
+            if (HttpContext.Session.GetInt32("signed_in").GetValueOrDefault() == 0)
+            {
+                SignedIn = 0;
+            }
+            else
+            {
+                SignedIn = (int)HttpContext.Session.GetInt32("signed_in");
+            }
+
             return Page();
         }
 
@@ -40,7 +51,7 @@ namespace BITS_Project.Pages.Tournaments
             {
                 _context.Tournaments.Add(emptyTourn);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Confirmation");
             }
 
             return Page();

@@ -3,6 +3,10 @@
 
 @{
     ViewData["Title"] = "Create";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }
 }
 
 <h1>Create</h1>

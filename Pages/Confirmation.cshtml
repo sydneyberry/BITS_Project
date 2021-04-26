@@ -1,0 +1,26 @@
+﻿@page
+@model BITS_Project.Pages.ConfirmationModel
+@{
+    ViewData["Title"] = "Confirmation";
+    if (Model.SignedIn == 1)
+    {
+        Layout = "_EmployeeLayout";
+    }
+}
+
+<div class="row mt-5 pt-5 text-center mx-auto">
+    <div class="col-12">
+        <h1>Success!</h1>
+        <h6 class="ml-5 mr-5">Everything was processed successfully.<br/>Please contact BITS at 605-123-4567 if you have any questions or conflicts.</h6>
+    </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12 text-center">
+        <a href="./Index">
+            <button class="btn btn-success btn-lg">
+                Back to Home
+            </button>
+        </a>
+    </div>
+</div>

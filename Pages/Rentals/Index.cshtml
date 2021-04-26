@@ -54,6 +54,10 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Rental[0].DateFor)
                     </th>
+                    @if(Model.SignedIn == 1)
+                    {
+                        <th>Actions</th>
+                    }
                 </tr>
             </thead>
             <tbody>

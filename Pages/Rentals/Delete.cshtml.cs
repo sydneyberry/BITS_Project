@@ -1,4 +1,5 @@
 ﻿using BITS_Project.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace BITS_Project.Pages.Rentals
     {
         private readonly BITS_Project.Data.BitsContext _context;
         private readonly ILogger<DeleteModel> _logger;
+        public int SignedIn { get; set; }
 
         public DeleteModel(BITS_Project.Data.BitsContext context,
                            ILogger<DeleteModel> logger)
@@ -26,6 +28,15 @@ namespace BITS_Project.Pages.Rentals
 
         public async Task<IActionResult> OnGetAsync(int? id, bool? saveChangesError = false)
         {
+            if (HttpContext.Session.GetInt32("signed_in").GetValueOrDefault() == 0)
+            {
+                SignedIn = 0;
+            }
+            else
+            {
+                SignedIn = (int)HttpContext.Session.GetInt32("signed_in");
+            }
+
             if (id == null)
             {
                 return NotFound();
@@ -67,7 +78,7 @@ namespace BITS_Project.Pages.Rentals
             {
                 _context.Rentals.Remove(rental);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Confirmation");
             }
             catch (DbUpdateException ex)
             {
