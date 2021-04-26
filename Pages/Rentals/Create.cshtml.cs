@@ -24,6 +24,8 @@ namespace BITS_Project.Pages.Rentals
             return Page();
         }
 
+
+
         [BindProperty]
         public Rental Rental { get; set; }
         
@@ -36,7 +38,7 @@ namespace BITS_Project.Pages.Rentals
                 "Rental",
                 r => r.FirstName, r => r.LastName, r => r.Equipments, r => r.PhoneNumber))
             {
-                Console.WriteLine("testing!");
+                
                 _context.Rentals.Add(emptyRental);
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");   // make a modal show up

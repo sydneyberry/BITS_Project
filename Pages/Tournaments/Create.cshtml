@@ -15,7 +15,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Tournament.Space" class="control-label"></label>
-                <select asp-for="Tournament.Space" class="form-control"></select>
+                <select asp-for="Tournament.Space" class="form-control">    
+                </select>
+
                 <span asp-validation-for="Tournament.Space" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -25,22 +27,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.ActivityType" class="control-label"></label>
-                <select asp-for="Tournament.ActivityType" class="form-control"></select>
+                <input asp-for="Tournament.ActivityType" class="form-control"></input>
                 <span asp-validation-for="Tournament.ActivityType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.MaxTeams" class="control-label"></label>
-                <select asp-for="Tournament.MaxTeams" class="form-control"></select>
+                <input min="2" asp-for="Tournament.MaxTeams" class="form-control"/>
                 <span asp-validation-for="Tournament.MaxTeams" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.MaxTeamSize" class="control-label"></label>
-                <select asp-for="Tournament.MaxTeamSize" class="form-control"></select>
+                <input min="1" asp-for="Tournament.MaxTeamSize" class="form-control"/>
                 <span asp-validation-for="Tournament.MaxTeamSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.MinTeamSize" class="control-label"></label>
-                <select asp-for="Tournament.MinTeamSize" class="form-control"></select>
+                <input min="0" asp-for="Tournament.MinTeamSize" class="form-control"/>
                 <span asp-validation-for="Tournament.MinTeamSize" class="text-danger"></span>
             </div>
             <div class="form-group">
