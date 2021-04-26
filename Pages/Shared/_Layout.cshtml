@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:600px;overflow-y:scroll">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,46 +14,43 @@
     <link rel="icon" type="image/png" sizes="32x32" href="~/favicon/favicon-32x32.png">
 </head>
 <body>
-    <div style="overflow:visible">
-        <header class="text-white mont" style="background-color: #568bcc">
-            <nav class="navbar navbar-expand-sm navbar-light navbar-toggleable-sm box-shadow mb-3">
-                <div class="container">
-                    <a class="navbar-brand" asp-area="" asp-page="/Index"><b>B.I.T.S.</b></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Rentals/Index">Rentals</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Reservations/Index">Reservations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-page="/Tournaments/Index">Tournaments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/Login">Employee Login</a>
-                            </li>
+    <header class="text-white mont" style="background-color: #568bcc">
+        <nav class="navbar navbar-expand-sm navbar-light navbar-toggleable-sm box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index"><b>B.I.T.S.</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Rentals/Index">Rentals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Reservations/Index">Reservations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Tournaments/Index">Tournaments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Login">Employee Login</a>
+                        </li>
 
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
-            </nav>
-        </header>
-        <div>
-            <div class="container mont">
-                <main role="main" class="pb-3">
-                    @RenderBody()
-                </main>
             </div>
+        </nav>
+    </header>
+    <div>
+        <div class="container mont">
+            <main role="main" class="pb-3">
+                    @RenderBody()
+            </main>
         </div>
     </div>
 
-
-        <footer class="border-top footer mt-5 mont" style="background-color: #568bcc">
+        <footer class="border-top footer mt-5 mont" style="background-color: #568bcc; position: fixed; bottom: 0; width: 100%; left: 0;">
             <div class="container">
                 <a>&copy; 2021 - Brookings Indoors Training Site (BITS)</a>
             </div>
