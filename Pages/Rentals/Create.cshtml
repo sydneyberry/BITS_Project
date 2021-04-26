@@ -33,6 +33,14 @@
                 <span asp-validation-for="Rental.DateFor" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Rental.EquipmentID" class="control-label"></label>
+                <select asp-for="Rental.EquipmentID" class="form-control"
+                        asp-items="@Model.EquipmentNameSL">
+                    <option value="">-- Select Equipment --</option>
+                </select>
+                <span asp-validation-for="Rental.EquipmentID" class="text-danger" />
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

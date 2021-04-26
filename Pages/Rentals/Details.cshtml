@@ -42,24 +42,13 @@
             @Html.DisplayFor(model => model.Rental.DateFor)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Rental.Equipments)
+            @Html.DisplayNameFor(model => model.Rental.EquipmentID)
         </dt>
         <dd class="col-sm-2">
             <table class="table">
                 <tr>
                     <th>Item</th>
                 </tr>
-                @foreach (var item in Model.Rental.Equipments)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EquipmentName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </td>
-                </tr>
-            }
             </table>
         </dd>
     </dl>

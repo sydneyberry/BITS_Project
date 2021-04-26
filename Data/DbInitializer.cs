@@ -17,9 +17,9 @@ namespace BITS_Project.Data
 
             var rentals = new Rental[]
             {
-                new Rental{FirstName="Sydney", LastName="Berry", PhoneNumber="1234567890", DateFor=DateTime.Parse("2020-09-01")},
-                new Rental{FirstName="Jenny", LastName="Nguyen", PhoneNumber="1234567890", DateFor=DateTime.Parse("2021-11-01")},
-                new Rental{FirstName="Noah", LastName="Fence", PhoneNumber="1234567890", DateFor=DateTime.Parse("2021-02-09")}
+                new Rental{FirstName="Sydney", LastName="Berry", EquipmentID=1, PhoneNumber="1234567890", DateFor=DateTime.Parse("2020-09-01")},
+                new Rental{FirstName="Jenny", LastName="Nguyen", EquipmentID=1, PhoneNumber="1234567890", DateFor=DateTime.Parse("2021-11-01")},
+                new Rental{FirstName="Noah", LastName="Fence", EquipmentID=3, PhoneNumber="1234567890", DateFor=DateTime.Parse("2021-02-09")}
             };
             context.Rentals.AddRange(rentals);
             context.SaveChanges();
