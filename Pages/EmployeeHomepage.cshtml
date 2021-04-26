@@ -5,7 +5,7 @@
     ViewData["title"] = "Employee Homepage";
 }
 
-<div class="row text-center">
+<div class="row text-center mt-5">
     <div class="col-12">
         <h3>Employee Homepage</h3>
     </div>
@@ -15,4 +15,77 @@
         <h6>ID: @Model.Username</h6>
     </div>
 </div>
+<br />
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="no-gutters border mb-4 mx-auto" style="height: 100%">
+            <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                <h5 class="mx-auto"><a asp-page="/Equipments/Index">Equipment Inventory</a></h5>
+                <p class="card-text mb-auto">
+                    View and edit equipment inventory to reflect BITS current stock of equipment.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="no-gutters border mb-4" style="height: 100%">
+            <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                <h5 class="mx-auto"><a asp-page="/Rentals">Rentals</a></h5>
+                <p class="card-text mb-auto">
+                    Click here to help a customer make a rental, update their rental, or view all rentals.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="no-gutters border mb-4" style="height: 100%">
+            <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                <h5 class="mx-auto"><a asp-page="/Reservations">Reservations</a></h5>
+                <p class="card-text mb-auto">
+                    Click here to help a customer make a reservation, update their reservation, or view all reservations.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="row mt-4 mb-5">
+    <div class="col-md-4">
+        <div class="no-gutters border mb-4" style="height: 100%">
+            <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                <h5 class="mx-auto"><a asp-page="/Rentals/Create">Spaces & Fields</a></h5>
+                <p class="card-text mb-auto">
+                    Update the current spaces and fields available for reservation here, or modify current ones.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="no-gutters border mb-4 mx-auto" style="height: 100%">
+            <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                <h5 class="mx-auto"><a asp-page="/Tournaments">Tournaments</a></h5>
+                <p class="card-text mb-auto">
+                    Create a tournament event and its details, and also view tournament details here.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="no-gutters border mb-4" style="height: 100%">
+            <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                <h5 class="mx-auto"><a asp-page="">Concessions</a></h5>
+                <p class="card-text mb-auto">
+                    Update the concessions inventory and handle transactions here for food purchases
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<br />
+<br />
+
 

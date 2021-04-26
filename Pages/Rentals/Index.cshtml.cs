@@ -11,9 +11,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace BITS_Project.Pages.Rentals
 {
-    public class IndexModel : PageModel
+    public class IndexModel : EquipmentNamePageModel
     {
-        private readonly BitsContext _context;
+        public readonly BitsContext _context;
         public int SignedIn { get; set; }
 
 
