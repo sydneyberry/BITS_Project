@@ -40,7 +40,7 @@ namespace BITS_Project.Pages.Tournaments
             {
                 _context.Tournaments.Add(emptyTourn);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Confirmation");
             }
 
             return Page();

@@ -40,7 +40,7 @@ namespace BITS_Project.Pages.Reservations
                 //SConsole.WriteLine("testing!");
                 _context.Reservations.Add(emptyRev);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Confirmation");
             }
 
             return Page();      // need to add error messages

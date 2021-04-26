@@ -38,7 +38,7 @@ namespace BITS_Project.Pages.Equipments
             _context.Equipments.Add(Equipment);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Confirmation");
         }
     }
 }

@@ -67,7 +67,7 @@ namespace BITS_Project.Pages.Rentals
             {
                 _context.Rentals.Remove(rental);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Confirmation");
             }
             catch (DbUpdateException ex)
             {

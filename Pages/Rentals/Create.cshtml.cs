@@ -40,7 +40,7 @@ namespace BITS_Project.Pages.Rentals
             {
                 _context.Rentals.Add(emptyRental);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");   // make a modal show up
+                return RedirectToPage("../Confirmation");   // make a modal show up
             }
 
             PopulateEquipmentsDropDownList(_context, emptyRental.ID);
