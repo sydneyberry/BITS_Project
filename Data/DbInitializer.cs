@@ -43,7 +43,7 @@ namespace BITS_Project.Data
             };
             reserve.Reservations.AddRange(reservations);
             reserve.SaveChanges();
-
+            */
             
 
             var tournaments = new Tournament[]
@@ -52,8 +52,8 @@ namespace BITS_Project.Data
                 new Tournament{DateFor=DateTime.Parse("2022-05-01"), ActivityType=Activity.CRICKET, Description="10 team limit"}
 
             };
-            tourn.Tournaments.AddRange(tournaments);
-            tourn.SaveChanges();*/
+            context.Tournaments.AddRange(tournaments);
+            context.SaveChanges();
         }
     }
 }
