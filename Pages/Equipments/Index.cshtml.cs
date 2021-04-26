@@ -21,13 +21,6 @@ namespace BITS_Project.Pages.Equipments
             _context = context;
         }
 
-        /*public Task OnGet()
-        {
-            
-
-            return Task.CompletedTask;
-        }*/
-
         public IList<Equipment> Equipment { get;set; }
 
         public async Task OnGetAsync()
