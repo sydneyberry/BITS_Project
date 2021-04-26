@@ -41,17 +41,17 @@ namespace BITS_Project.Pages.Rentals
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            var studentToUpdate = await _context.Rentals.FindAsync(id);
+            var RentalToUpdate = await _context.Rentals.FindAsync(id);
 
-            if (studentToUpdate == null)
+            if (RentalToUpdate == null)
             {
                 return NotFound();
             }
 
             if (await TryUpdateModelAsync<Rental>(
-                studentToUpdate,
-                "student",
-                s => s.FirstName, s => s.LastName, s => s.PhoneNumber))
+                RentalToUpdate,
+                "Rental",
+                s => s.FirstName, s => s.LastName, s => s.PhoneNumber, s => s.DateFor))
             {
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
