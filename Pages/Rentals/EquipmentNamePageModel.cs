@@ -9,18 +9,19 @@ using System.Linq;
 
 namespace BITS_Project.Pages.Rentals
 {
-    public class EquipmentNamePageModel
+    public class EquipmentNamePageModel : PageModel
     {
-        public SelectList DepartmentNameSL { get; set; }
-        /*public void PopulateEquipmentsDropDownList( _context,
+        public SelectList EquipmentNameSL { get; set; }
+
+        public void PopulateEquipmentsDropDownList(BitsContext _context,
             object selectedDepartment = null)
         {
-            var departmentsQuery = from d in _context.Departments
-                                   orderby d.Name // Sort by name.
+            var departmentsQuery = from d in _context.Equipments
+                                   orderby d.ID // Sort by name.
                                    select d;
 
-            DepartmentNameSL = new SelectList(departmentsQuery.AsNoTracking(),
-                        "DepartmentID", "Name", selectedDepartment);
-        }*/
+            EquipmentNameSL = new SelectList(departmentsQuery.AsNoTracking(),
+                        "EquipmentName", "ID", selectedDepartment);
+        }
     }
 }

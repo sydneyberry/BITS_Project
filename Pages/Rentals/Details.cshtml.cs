@@ -30,7 +30,7 @@ namespace BITS_Project.Pages.Rentals
 
             //Rental = await _context.Rentals.FirstOrDefaultAsync(m => m.ID == id);
             Rental = await _context.Rentals
-                .Include(s => s.Equipments)
+                .Include(s => s.EquipmentID)
                 .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
 
