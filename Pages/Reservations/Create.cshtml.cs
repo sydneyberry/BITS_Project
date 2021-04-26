@@ -30,15 +30,20 @@ namespace BITS_Project.Pages.Reservations
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyRev = new Reservation();
+
+            if (await TryUpdateModelAsync<Reservation>(
+                emptyRev,
+                "Reservation",
+                x => x.FirstName, x => x.LastName))
             {
-                return Page();
+                //SConsole.WriteLine("testing!");
+                _context.Reservations.Add(emptyRev);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Reservations.Add(Reservation);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return Page();      // need to add error messages
         }
     }
 }
