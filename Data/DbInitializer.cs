@@ -48,7 +48,11 @@ namespace BITS_Project.Data
 
             var tournaments = new Tournament[]
             {
-                new Tournament{SpaceID = 1, DateFor=DateTime.Parse("2021-04-01"), ActivityType = Activity.SOCCER, MaxTeams = 10, MaxTeamSize = 6, MinTeamSize = 4 }
+                new Tournament{SpaceID = 1, DateFor=DateTime.Parse("2021-04-01, 12:30:00"), ActivityType = Activity.SOCCER, MaxTeams = 10, MaxTeamSize = 6, MinTeamSize = 4 },
+                new Tournament{SpaceID = 3, DateFor=DateTime.Parse("2021-05-15, 14:00:00"), ActivityType = Activity.RUGBY, MaxTeams = 4, MaxTeamSize = 30, MinTeamSize = 15},
+                new Tournament{SpaceID = 2, DateFor=DateTime.Parse("2021-04-29, 10:00:00"), ActivityType = Activity.DODGEBALL, MaxTeams = 10, MaxTeamSize = 5, MinTeamSize = 5 }
+
+
                 //new Tournament{DateFor=DateTime.Parse("2021-05-01"), ActivityType=Activity.SOCCER, Description="10 team limit"},
                 //new Tournament{DateFor=DateTime.Parse("2022-05-01"), ActivityType=Activity.CRICKET, Description="10 team limit"}
 
