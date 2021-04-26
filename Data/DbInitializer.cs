@@ -48,7 +48,7 @@ namespace BITS_Project.Data
 
             var tournaments = new Tournament[]
             {
-                new Tournament{DateFor=DateTime.Parse("2021-05-01"), ActivityType=Activity.SOCCER, Description="10 team limit"},
+                new Tournament{DateFor=DateTime.Parse("2021-05-01"), ActivityType=Activity.SOCCER, MaxTeams=10, MaxTeamSize=5, MinTeamSize=5},
                 new Tournament{DateFor=DateTime.Parse("2022-05-01"), ActivityType=Activity.CRICKET, Description="10 team limit"}
 
             };
