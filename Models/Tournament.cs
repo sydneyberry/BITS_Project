@@ -43,7 +43,7 @@ namespace BITS_Project.Models
         public int MinTeamSize { get; set; }
 
         [Required]
-        public Space Space { get; set; }
+        public int SpaceID { get; set; }
 
         public string Description { get; set; }
 
