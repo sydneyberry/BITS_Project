@@ -27,18 +27,23 @@ namespace BITS_Project.Pages.Tournaments
         [BindProperty]
         public Tournament Tournament { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyTourn = new Tournament();
+
+            if(await TryUpdateModelAsync<Tournament>(
+                emptyTourn,
+                "Tournament",
+                q => q.DateFor, q => q.ActivityType, q => q.MaxTeams,
+                q => q.MaxTeamSize, q => q.MinTeamSize, q => q.Space
+                ))
             {
-                return Page();
+                _context.Tournaments.Add(emptyTourn);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
             }
 
-            _context.Tournaments.Add(Tournament);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

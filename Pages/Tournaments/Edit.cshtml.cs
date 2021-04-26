@@ -30,7 +30,7 @@ namespace BITS_Project.Pages.Tournaments
                 return NotFound();
             }
 
-            Tournament = await _context.Tournaments.FirstOrDefaultAsync(m => m.ID == id);
+            Tournament = await _context.Tournaments.FindAsync(id);
 
             if (Tournament == null)
             {
@@ -39,34 +39,27 @@ namespace BITS_Project.Pages.Tournaments
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var TournToUpdate = await _context.Tournaments.FindAsync(id);
+
+            if(TournToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Tournament).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync<Tournament>(
+                TournToUpdate,
+                "Tournament",
+                 t => t.DateFor, t => t.ActivityType, t => t.MaxTeams, 
+                 t => t.MaxTeamSize, t => t.MinTeamSize, t => t.Space))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TournamentExists(Tournament.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+
+            return Page();
         }
 
         private bool TournamentExists(int id)
