@@ -18,6 +18,11 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Tournament.ID" />
             <div class="form-group">
+                <label asp-for="Tournament.SpaceID" class="control-label"></label>
+                <input asp-for="Tournament.SpaceID" class="form-control" />
+                <span asp-validation-for="Tournament.SpaceID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Tournament.DateMade" class="control-label"></label>
                 <input asp-for="Tournament.DateMade" class="form-control" />
                 <span asp-validation-for="Tournament.DateMade" class="text-danger"></span>
@@ -31,6 +36,21 @@
                 <label asp-for="Tournament.ActivityType" class="control-label"></label>
                 <select asp-for="Tournament.ActivityType" class="form-control"></select>
                 <span asp-validation-for="Tournament.ActivityType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tournament.MaxTeams" class="control-label"></label>
+                <input min=" 0" asp-for="Tournament.MaxTeams" class="form-control" />
+                <span asp-validation-for="Tournament.MaxTeams" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tournament.MaxTeamSize" class="control-label"></label>
+                <input min="0" asp-for="Tournament.MaxTeamSize" class="form-control" />
+                <span asp-validation-for="Tournament.MaxTeamSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tournament.MinTeamSize" class="control-label"></label>
+                <input min=" 0" asp-for="Tournament.MinTeamSize" class="form-control" />
+                <span asp-validation-for="Tournament.MinTeamSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
