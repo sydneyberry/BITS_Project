@@ -12,9 +12,9 @@ namespace BITS_Project.Pages.Tournaments
 {
     public class CreateModel : PageModel
     {
-        private readonly BITS_Project.Data.TournamentContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public CreateModel(BITS_Project.Data.TournamentContext context)
+        public CreateModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

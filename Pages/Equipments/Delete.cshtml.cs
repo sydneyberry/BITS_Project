@@ -12,9 +12,9 @@ namespace BITS_Project.Pages.Equipments
 {
     public class DeleteModel : PageModel
     {
-        private readonly BITS_Project.Data.EquipmentContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public DeleteModel(BITS_Project.Data.EquipmentContext context)
+        public DeleteModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

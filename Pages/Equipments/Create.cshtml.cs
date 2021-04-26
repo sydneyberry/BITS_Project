@@ -12,9 +12,9 @@ namespace BITS_Project.Pages.Equipments
 {
     public class CreateModel : PageModel
     {
-        private readonly BITS_Project.Data.EquipmentContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public CreateModel(BITS_Project.Data.EquipmentContext context)
+        public CreateModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

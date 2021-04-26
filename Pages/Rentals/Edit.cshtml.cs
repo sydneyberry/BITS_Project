@@ -13,9 +13,9 @@ namespace BITS_Project.Pages.Rentals
 {
     public class EditModel : PageModel
     {
-        private readonly BITS_Project.Data.RentalContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
 
-        public EditModel(BITS_Project.Data.RentalContext context)
+        public EditModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

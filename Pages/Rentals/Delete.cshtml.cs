@@ -10,10 +10,10 @@ namespace BITS_Project.Pages.Rentals
 {
     public class DeleteModel : PageModel
     {
-        private readonly BITS_Project.Data.RentalContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
         private readonly ILogger<DeleteModel> _logger;
 
-        public DeleteModel(BITS_Project.Data.RentalContext context,
+        public DeleteModel(BITS_Project.Data.BitsContext context,
                            ILogger<DeleteModel> logger)
         {
             _context = context;

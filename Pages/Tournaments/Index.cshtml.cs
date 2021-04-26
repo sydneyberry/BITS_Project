@@ -13,10 +13,10 @@ namespace BITS_Project.Pages.Tournaments
 {
     public class IndexModel : PageModel
     {
-        private readonly BITS_Project.Data.TournamentContext _context;
+        private readonly BITS_Project.Data.BitsContext _context;
         public int SignedIn { get; set; }
 
-        public IndexModel(BITS_Project.Data.TournamentContext context)
+        public IndexModel(BITS_Project.Data.BitsContext context)
         {
             _context = context;
         }

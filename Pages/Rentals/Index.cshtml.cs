@@ -13,11 +13,11 @@ namespace BITS_Project.Pages.Rentals
 {
     public class IndexModel : PageModel
     {
-        private readonly BITS_Project.Data.RentalContext _context;
+        private readonly BitsContext _context;
         public int SignedIn { get; set; }
 
 
-        public IndexModel(BITS_Project.Data.RentalContext context)
+        public IndexModel(BitsContext context)
         {
             _context = context;
         }

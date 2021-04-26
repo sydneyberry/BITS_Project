@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using BITS_Project;
 
-namespace ContosoUniversity
+namespace BITS_Project
 {
     public class Program
     {
@@ -26,19 +25,9 @@ namespace ContosoUniversity
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var rentalContext = services.GetRequiredService<RentalContext>();
-                    rentalContext.Database.EnsureCreated();
-
-                    var reservationContext = services.GetRequiredService<ReservationContext>();
-                    reservationContext.Database.EnsureCreated();
-
-                    var tournamentContext = services.GetRequiredService<TournamentContext>();
-                    tournamentContext.Database.EnsureCreated();
-
-                    var equipmentContext = services.GetRequiredService<EquipmentContext>();
-                    equipmentContext.Database.EnsureCreated();
-
-                    DbInitializer.Initialize(rentalContext, equipmentContext);
+                    var context = services.GetRequiredService<BitsContext>();
+                    context.Database.EnsureCreated();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
