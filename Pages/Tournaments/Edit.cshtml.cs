@@ -52,7 +52,7 @@ namespace BITS_Project.Pages.Tournaments
                 TournToUpdate,
                 "Tournament",
                  t => t.DateFor, t => t.ActivityType, t => t.MaxTeams, 
-                 t => t.MaxTeamSize, t => t.MinTeamSize, t => t.Space))
+                 t => t.MaxTeamSize, t => t.MinTeamSize, t => t.SpaceID))
             {
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");

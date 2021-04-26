@@ -12,10 +12,10 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Tournament.Space)
+            @Html.DisplayNameFor(model => model.Tournament.SpaceID)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Tournament.Space)
+            @Html.DisplayFor(model => model.Tournament.SpaceID)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Tournament.DateMade)
@@ -34,6 +34,24 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Tournament.ActivityType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tournament.MaxTeams)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tournament.MaxTeams)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tournament.MaxTeamSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tournament.MaxTeamSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tournament.MinTeamSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tournament.MinTeamSize)
         </dd>
     </dl>
 </div>

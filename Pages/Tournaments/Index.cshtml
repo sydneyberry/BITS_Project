@@ -49,7 +49,7 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].Space)
+                    @Html.DisplayNameFor(model => model.Tournament[0].SpaceID)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Tournament[0].DateFor)
@@ -74,10 +74,7 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Space)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateMade)
+                    @Html.DisplayFor(modelItem => item.SpaceID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateFor)

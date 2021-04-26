@@ -35,7 +35,7 @@ namespace BITS_Project.Pages.Tournaments
                 emptyTourn,
                 "Tournament",
                 q => q.DateFor, q => q.ActivityType, q => q.MaxTeams,
-                q => q.MaxTeamSize, q => q.MinTeamSize, q => q.Space
+                q => q.MaxTeamSize, q => q.MinTeamSize, q => q.SpaceID
                 ))
             {
                 _context.Tournaments.Add(emptyTourn);

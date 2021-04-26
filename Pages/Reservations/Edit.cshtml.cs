@@ -30,7 +30,7 @@ namespace BITS_Project.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations.FirstOrDefaultAsync(m => m.ID == id);
+            Reservation = await _context.Reservations.FindAsync(id);
 
             if (Reservation == null)
             {
@@ -39,34 +39,25 @@ namespace BITS_Project.Pages.Reservations
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int id)
         {
-            if (!ModelState.IsValid)
+            var ResToUpdate = await _context.Reservations.FindAsync(id);
+
+            if(ResToUpdate == null)
             {
-                return Page();
+                return NotFound();
             }
 
-            _context.Attach(Reservation).State = EntityState.Modified;
-
-            try
+            if (await TryUpdateModelAsync<Reservation>(
+                ResToUpdate,
+                "Reservation",
+                r => r.FirstName, r => r.LastName, r => r.SpaceID))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ReservationExists(Reservation.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
         private bool ReservationExists(int id)

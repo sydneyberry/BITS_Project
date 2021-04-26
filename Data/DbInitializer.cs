@@ -44,12 +44,13 @@ namespace BITS_Project.Data
             reserve.Reservations.AddRange(reservations);
             reserve.SaveChanges();
             */
-            
+
 
             var tournaments = new Tournament[]
             {
-                new Tournament{DateFor=DateTime.Parse("2021-05-01"), ActivityType=Activity.SOCCER, Description="10 team limit"},
-                new Tournament{DateFor=DateTime.Parse("2022-05-01"), ActivityType=Activity.CRICKET, Description="10 team limit"}
+                new Tournament{SpaceID = 1, DateFor=DateTime.Parse("2021-04-01"), ActivityType = Activity.SOCCER, MaxTeams = 10, MaxTeamSize = 6, MinTeamSize = 4 }
+                //new Tournament{DateFor=DateTime.Parse("2021-05-01"), ActivityType=Activity.SOCCER, Description="10 team limit"},
+                //new Tournament{DateFor=DateTime.Parse("2022-05-01"), ActivityType=Activity.CRICKET, Description="10 team limit"}
 
             };
             context.Tournaments.AddRange(tournaments);

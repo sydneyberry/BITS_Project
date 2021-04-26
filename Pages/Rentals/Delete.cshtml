@@ -26,7 +26,18 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Rental.LastName)
         </dd>
-        w
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.DateFor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.DateFor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rental.EquipmentID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rental.EquipmentID)
+        </dd>
     </dl>
 
     <form method="post">
