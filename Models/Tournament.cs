@@ -18,10 +18,8 @@ namespace BITS_Project.Models
         [Key]
         public int ID { get; set; }
 
-        [Required]
         public Reservation ReservationID { get; set; }
 
-        [Required]
         public int EmpID { get; set; }
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -46,10 +44,6 @@ namespace BITS_Project.Models
         public int SpaceID { get; set; }
 
         public string Description { get; set; }
-
-
-
-        
 
     }
 }

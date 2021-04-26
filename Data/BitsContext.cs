@@ -27,7 +27,5 @@ namespace BITS_Project.Data
             modelBuilder.Entity<Tournament>().ToTable("Space");
             modelBuilder.Entity<Tournament>().ToTable("Tournament");
         }
-
-       
     }
 }
