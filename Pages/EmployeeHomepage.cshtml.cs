@@ -23,6 +23,7 @@ namespace BITS_Project.Pages
         public IActionResult OnGetLogout()
         {
             HttpContext.Session.Remove("username");
+            HttpContext.Session.Remove("signed_in");
             return RedirectToPage("Index");
         }
     }
