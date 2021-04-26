@@ -23,6 +23,8 @@ namespace BITS_Project.Pages.Rentals
             return Page();
         }
 
+
+
         [BindProperty]
         public Rental Rental { get; set; }
 
