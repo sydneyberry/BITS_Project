@@ -21,7 +21,16 @@ namespace BITS_Project.Pages.Equipments
             _context = context;
         }
 
-        public async Task OnGet()
+        /*public Task OnGet()
+        {
+            
+
+            return Task.CompletedTask;
+        }*/
+
+        public IList<Equipment> Equipment { get;set; }
+
+        public async Task OnGetAsync()
         {
             if (HttpContext.Session.GetInt32("signed_in").GetValueOrDefault() == 0)
             {
@@ -31,12 +40,7 @@ namespace BITS_Project.Pages.Equipments
             {
                 SignedIn = (int)HttpContext.Session.GetInt32("signed_in");
             }
-        }
 
-        public IList<Equipment> Equipment { get;set; }
-
-        public async Task OnGetAsync()
-        {
             Equipment = await _context.Equipments.ToListAsync();
         }
     }
