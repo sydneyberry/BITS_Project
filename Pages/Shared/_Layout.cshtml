@@ -14,41 +14,44 @@
     <link rel="icon" type="image/png" sizes="32x32" href="~/favicon/favicon-32x32.png">
 </head>
 <body>
-    <header class="text-white mont" style="background-color: #568bcc">
-        <nav class="navbar navbar-expand-sm navbar-light navbar-toggleable-sm box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"><b>B.I.T.S.</b></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Rentals/Index">Rentals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Reservations/Index">Reservations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Tournaments/Index">Tournaments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Login">Employee Login</a>
-                        </li>
+    <div style="overflow:visible">
+        <header class="text-white mont" style="background-color: #568bcc">
+            <nav class="navbar navbar-expand-sm navbar-light navbar-toggleable-sm box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index"><b>B.I.T.S.</b></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Rentals/Index">Rentals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Reservations/Index">Reservations</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-page="/Tournaments/Index">Tournaments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Login">Employee Login</a>
+                            </li>
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div>
-        <div class="container mont">
-            <main role="main" class="pb-3">
+            </nav>
+        </header>
+        <div>
+            <div class="container mont">
+                <main role="main" class="pb-3">
                     @RenderBody()
-            </main>
+                </main>
+            </div>
         </div>
     </div>
+
 
         <footer class="border-top footer mt-5 mont" style="background-color: #568bcc">
             <div class="container">
