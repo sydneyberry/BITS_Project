@@ -15,6 +15,7 @@ namespace BITS_Project.Pages.Rentals
     {
         private readonly BitsContext _context;
         public int SignedIn { get; set; }
+        public string Msg { get; set; }
 
         public CreateModel(BitsContext context)
         {
@@ -50,6 +51,25 @@ namespace BITS_Project.Pages.Rentals
             {
                 _context.Rentals.Add(emptyRental);
                 await _context.SaveChangesAsync();
+
+                var quantityLimit = from x in _context.Equipments
+                            where x.ID == emptyRental.EquipmentID
+                            select x.Quantity;
+                var count = from y in _context.Rentals
+                            where y.DateFor == emptyRental.DateFor && y.EquipmentID == emptyRental.EquipmentID
+                            select y;
+
+                if(count.Count() > quantityLimit.First())
+                {
+                    var temp = from z in _context.Equipments
+                               where z.ID == emptyRental.EquipmentID
+                               select z.EquipmentName;
+
+                    Msg = "There are no more of " + temp.First().ToString() + " available. Please select a new item to rent.";
+                    PopulateEquipmentsDropDownList(_context, emptyRental.ID);
+                    return Page();      // need to add error messages
+                }
+
                 return RedirectToPage("../Confirmation");   // make a modal show up
             }
 

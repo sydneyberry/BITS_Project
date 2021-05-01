@@ -15,103 +15,98 @@
         <p class="ml-5 mr-5">BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read out rental policy <a href="">here</a> before making any reservations.</p>
     </div>
 
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="no-gutters border mb-4" style="height: 100%">
-                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
-                    <h5 class="mx-auto"><a asp-page="/Tournaments/Index">Tournament Results</a></h5>
-                    <p class="card-text mb-auto">
-                        Apart of the team or curious as to how your friend is doing? Check the results of all ongoing or past tournaments here.
-                    </p>
+    @if (Model.SignedIn == 1)
+    {
+        <div class="row mt-4 mx-auto align-content-center">
+            <!--<div class="col-md-6">
+                <div class="no-gutters border mb-4" style="height: 100%">
+                    <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                        <h5 class="mx-auto"><a asp-page="/Tournaments/Index">Tournament Results</a></h5>
+                        <p class="card-text mb-auto">
+                            Apart of the team or curious as to how your friend is doing? Check the results of all ongoing or past tournaments here.
+                        </p>
+                    </div>
+                </div>
+            </div>-->
+
+
+            <div class="col-md-6 mx-auto">
+                <div class="no-gutters border mb-4" style="height: 100%">
+                    <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
+                        <h5 class="mx-auto"><a asp-page="/Tournaments/Create">Create a Tournament Event</a></h5>
+                        <p class="card-text mb-auto">
+                            Looking to create a tournament and host it at BITS? No problem. Click here to create a tournamment, and may the best team win.
+                        </p>
+                    </div>
                 </div>
             </div>
+            
         </div>
-        <div class="col-md-6">
-            <div class="no-gutters border mb-4" style="height: 100%">
-                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
-                    <h5 class="mx-auto"><a asp-page="/Teams/Create">Tournament Sign-Up</a></h5>
-                    <p class="card-text mb-auto">
-                        Apart of the team or curious as to how your friend is doing? Check the results of all ongoing or past tournaments here.
-                    </p>
-                </div>
-            </div>
+    }
+
+        <div class="pt-5 pb-5">
+            <a asp-page="./Index" asp-route-filter="@true" class="form-group">
+                <label class="control-label">Show Only Upcoming Tournaments</label>
+                @if (Model.filtered)
+                {
+                    <input type="checkbox" checked />
+                }
+                else
+                {
+                    <input type="checkbox" />
+                }
+            </a>
         </div>
-    </div>
-    <div class="row mt-4 mb-4">
-        <div class="col-md-6 mx-auto">
-            <div class="no-gutters border mb-4" style="height: 100%">
-                <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
-                    <h5 class="mx-auto"><a asp-page="/Tournaments/Create">Create a Tournament Event</a></h5>
-                    <p class="card-text mb-auto">
-                        Looking to create a tournament and host it at BITS? No problem. Click here to create a tournamment, and may the best team win.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="pt-5">
-        <a asp-page="./Index" asp-route-filter="@true" class="form-group">
-            <label class="control-label">Show Only Upcoming Tournaments</label>
-            @if (Model.filtered)
-            {
-                <input type="checkbox" checked />
-            }
-            else
-            {
-                <input type="checkbox" />
-            }
-        </a>
-    </div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].SpaceID)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].DateFor)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].ActivityType)
-                </th>
-                <th>
-                    Team Size
-                </th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Tournament)
-            {
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Model.GetSpaceName(item.SpaceID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateFor)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ActivityType)
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.MinTeamSize) - @Html.DisplayFor(modelItem => item.MaxTeamSize) Players</td>
-
-                    @if (Model.SignedIn == 1)
-                    {
-                        <td>
-                            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
-                    }
-                    else
-                    {
-                        <td>
-                            <a asp-page="" asp-route-id="@item.ID">Team Sign-Up</a>
-                        </td>
-                    }
-
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tournament[0].SpaceID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tournament[0].DateFor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tournament[0].ActivityType)
+                    </th>
+                    <th>
+                        Team Size
+                    </th>
+                    <th>Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Tournament)
+                {
+                    <tr>
+                        <td>
+                            @Model.GetSpaceName(item.SpaceID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateFor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivityType)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.MinTeamSize) - @Html.DisplayFor(modelItem => item.MaxTeamSize) Players</td>
+
+                        @if (Model.SignedIn == 1)
+                        {
+                            <td>
+                                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <a asp-page="" asp-route-id="@item.ID">Team Sign-Up</a>
+                            </td>
+                        }
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

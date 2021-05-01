@@ -26,6 +26,7 @@ namespace BITS_Project.Models
         public DateTime DateMade { get; set; } = DateTime.UtcNow;
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Date For")]
         public DateTime DateFor { get; set; }
 

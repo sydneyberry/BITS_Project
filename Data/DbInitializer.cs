@@ -30,7 +30,7 @@ namespace BITS_Project.Data
             {
                 new Equipment{EquipmentName="Soccer Ball", Description="Used for kicking", Quantity=6},
                 new Equipment{EquipmentName="Football", Description="yaaaay sports", Quantity=4},
-                new Equipment{EquipmentName="Stopwatch", Description="Typically used for workouts or track & field training", Quantity=3}
+                new Equipment{EquipmentName="Stopwatch", Description="Typically used for workouts or track & field training", Quantity=2}
             };
 
             context.Equipments.AddRange(equipments);

@@ -25,7 +25,6 @@ namespace BITS_Project.Pages.Rentals
                         "ID", "EquipmentName", selectedDepartment);
         }
 
-        
         public string GetEquipmentName(BitsContext _context, int item_id)
         {
             var query = from d in _context.Equipments
