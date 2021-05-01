@@ -10,7 +10,7 @@ namespace BITS_Project.Models
 {
     public enum Activity
     {
-        SOCCER, FOOTBALL, RUGBY, CRICKET, DODGEBALL, OTHER
+        Soccer, Football, Rugby, Cricket, Dodgeball, Other
     }
 
     public class Tournament
@@ -26,10 +26,12 @@ namespace BITS_Project.Models
         public DateTime DateMade { get; set; } = DateTime.UtcNow;
 
         [Required]
+        [Display(Name = "Date For")]
         public DateTime DateFor { get; set; }
 
         [Required]
-        public Activity ActivityType { get; set; }
+        [Display(Name = "Activity")]
+        public Activity ActivityType { get; set; } = Activity.Other;
 
         [Required]
         public int MaxTeams { get; set; }
@@ -41,6 +43,7 @@ namespace BITS_Project.Models
         public int MinTeamSize { get; set; }
 
         [Required]
+        [Display(Name = "Location")]
         public int SpaceID { get; set; }
 
         public string Description { get; set; }

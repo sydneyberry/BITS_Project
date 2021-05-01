@@ -62,18 +62,9 @@
                     @Html.DisplayNameFor(model => model.Tournament[0].ActivityType)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].MaxTeams)
+                    Team Size
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].MaxTeamSize)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Tournament[0].MinTeamSize)
-                </th>
-                @if (Model.SignedIn == 1)
-                {
-                    <th>Actions</th>
-                }
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -81,7 +72,7 @@
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SpaceID)
+                    @Model.GetSpaceName(Model._context, item.SpaceID)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateFor)
@@ -89,15 +80,17 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ActivityType)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaxTeams)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaxTeamSize)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MinTeamSize)
-                </td>
+
+                @if (@Html.DisplayFor(modelItem => item.MinTeamSize) == @Html.DisplayFor(modelItem => item.MaxTeamSize))
+                {
+                    <td> @Html.DisplayFor(modelItem => item.MinTeamSize)</td>
+
+                }
+                else
+                {
+                    Console.WriteLine("hello");
+                    <td>@Html.DisplayFor(modelItem => item.MinTeamSize) - @Html.DisplayFor(modelItem => item.MaxTeamSize) Players</td>
+                }
 
                 @if (Model.SignedIn == 1)
                 {
@@ -105,6 +98,12 @@
                         <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                         <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                         <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a asp-page"" asp-route-id="@item.ID">Team Sign-Up</a>
                     </td>
                 }
 

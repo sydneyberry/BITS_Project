@@ -9,13 +9,13 @@
     }
 }
 
-<div class="mt-5 pl-5 pr-5 push" >
+<div class="mt-5 pl-5 pr-5 push">
     <div class="row mx-auto" style="overflow:auto">
         <h1 class="mx-auto">Rentals</h1>
         <p class="ml-5 mr-5">BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read out rental policy <a href="">here</a> before making any reservations.</p>
     </div>
 
-    <div class="row mt-4">
+    <div class="row mt-5">
         <div class="col-md-6">
             <div class="no-gutters border mb-4 mx-auto" style="height: 100%">
                 <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
@@ -31,65 +31,65 @@
                 <div class="col p-4 d-flex flex-column position-static bg-light" style="height: 100%">
                     <h5 class="mx-auto"><a asp-page="/Rentals/Create">Create a Rental</a></h5>
                     <p class="card-text mb-auto">
-                    Looking to rent equipment while visiting BITS? We're happy to provide the opportunity to make rent equipment in advance by filling out our online form.
+                        Looking to rent equipment while visiting BITS? We're happy to provide the opportunity to make rent equipment in advance by filling out our online form.
                     </p>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="row mt-4">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rental[0].FirstName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rental[0].LastName)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rental[0].EquipmentID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rental[0].DateFor)
-                    </th>
-                    @if(Model.SignedIn == 1)
-                    {
+    @if (Model.SignedIn == 1)
+    {
+        <div class="row mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rental[0].FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rental[0].LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rental[0].EquipmentID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rental[0].DateFor)
+                        </th>
                         <th>Actions</th>
-                    }
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.Rental)
-                {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Model.GetEquipmentName(Model._context, item.EquipmentID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateFor)
-                    </td>
-                    @if (Model.SignedIn == 1)
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Rental)
                     {
-                        <td>
-                            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            <td>
+                                @Model.GetEquipmentName(Model._context, item.EquipmentID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateFor)
+                            </td>
+                            <td>
+                                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        </tr>
                     }
+                </tbody>
+            </table>
+        </div>
+    } 
+    else
+    {
+        <br/><br/><br/><br/><br/>
+    }
 
-                </tr>
-                }
-            </tbody>
-        </table>
-    </div>
 </div>
 
 

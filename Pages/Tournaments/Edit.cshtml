@@ -34,7 +34,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.ActivityType" class="control-label"></label>
-                <select asp-for="Tournament.ActivityType" class="form-control"></select>
+                <select asp-for="Tournament.ActivityType" asp-items="Html.GetEnumSelectList<BITS_Project.Models.Activity>()" class="form-control">
+                    <option selected="selected" value="">Select Activity</option>
+                </select>
                 <span asp-validation-for="Tournament.ActivityType" class="text-danger"></span>
             </div>
             <div class="form-group">

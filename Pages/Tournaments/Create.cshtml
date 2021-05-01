@@ -8,9 +8,7 @@
         Layout = "_EmployeeLayout";
     }}
 
-<h1>Create</h1>
-
-<h4>Tournament</h4>
+<h4>Create Tournament Event</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -30,7 +28,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.ActivityType" class="control-label"></label>
-                <input asp-for="Tournament.ActivityType" class="form-control"></input>
+                <select asp-for="Tournament.ActivityType" asp-items="Html.GetEnumSelectList<BITS_Project.Models.Activity>()" class="form-control">
+                    <option selected="selected" value="">Select Activity</option>
+                </select>
                 <span asp-validation-for="Tournament.ActivityType" class="text-danger"></span>
             </div>
             <div class="form-group">

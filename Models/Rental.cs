@@ -14,6 +14,7 @@ namespace BITS_Project.Models
         public int ID { get; set; }
 
         //[Required]
+        [Display(Name = "Equipment")]
         public int EquipmentID { get; set; }
 
         [Required]

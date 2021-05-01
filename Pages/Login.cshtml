@@ -7,8 +7,9 @@
         Layout = "_EmployeeLayout";
     }}
 
-<h4 class="mx-auto">Employee Login</h4>
-<div class="row mb-12 mx-auto">
+<h4 class="mx-auto mt-5 pt-5 text-center">Employee Login</h4>
+<br/>
+<div class="row mb-5 pb-5 mx-auto justify-content-center">
     <form method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
@@ -16,10 +17,10 @@
             <input type="text" asp-for="@Model.Username" />
         </div>
         <div class="form-group">
-            <label asp-for="@Model.Password">Password:</label>
+            <label asp-for="@Model.Password">Password:&nbsp;</label>
             <input type="password" asp-for="@Model.Password" />
         </div>
-        <div class="form-group">
+        <div class="form-group text-center">
             <input type="submit" value="Login" class="btn btn-primary" />
         </div>
     </form>
@@ -27,3 +28,4 @@
 <div class="row text-danger">
     @Model.Msg
 </div>
+<br/><br/>

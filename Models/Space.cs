@@ -10,7 +10,7 @@ namespace BITS_Project.Models
 {
     public enum SpaceType
     {
-        SMALL_FIELD, MEDIUM_FIELD, LARGE_FIELD, TRACK, BATTING, OTHER
+        SMALL_FIELD_1, SMALL_FIELD_2, MEDIUM_FIELD_1, MEDIUM_FIELD_2, LARGE_FIELD, TRACK, BATTING, OTHER
     }
 
     public class Space
