@@ -17,11 +17,22 @@
     <br />
     <div class="row">
         <div class="col-12 text-center">
-            <a href="./Index">
-                <button class="btn btn-success btn-lg">
-                    Back to Home
-                </button>
-            </a>
+            @if (Model.SignedIn == 1)
+            {
+                <a href="./EmployeeHomepage">
+                    <button class="btn btn-success btn-lg">
+                        Back to Employee Homepage
+                    </button>
+                </a>
+            }
+            else
+            {
+                <a href="./Index">
+                    <button class="btn btn-success btn-lg">
+                        Back to Home
+                    </button>
+                </a>
+            }
         </div>
     </div>
 </div>

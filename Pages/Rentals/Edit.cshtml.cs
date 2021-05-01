@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace BITS_Project.Pages.Rentals
 {
-    public class EditModel : PageModel
+    public class EditModel : EquipmentNamePageModel
     {
         private readonly BITS_Project.Data.BitsContext _context;
         public int SignedIn { get; set; }
@@ -24,6 +24,7 @@ namespace BITS_Project.Pages.Rentals
 
         [BindProperty]
         public Rental Rental { get; set; }
+        public string Msg { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -43,10 +44,12 @@ namespace BITS_Project.Pages.Rentals
 
             Rental = await _context.Rentals.FindAsync(id);
 
+
             if (Rental == null)
             {
                 return NotFound();
             }
+            PopulateEquipmentsDropDownList(_context);
             return Page();
         }
 
@@ -62,13 +65,38 @@ namespace BITS_Project.Pages.Rentals
             if (await TryUpdateModelAsync<Rental>(
                 RentalToUpdate,
                 "Rental",
-                s => s.FirstName, s => s.LastName, s => s.PhoneNumber, s => s.DateFor))
+                s => s.FirstName, s => s.LastName, s => s.PhoneNumber, s => s.DateFor, s=>s.EquipmentID))
             {
+
+
+                //_context.Rentals.Add(RentalToUpdate);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Confirmation");
+
+
+                /*var quantityLimit = from x in _context.Equipments
+                                    where x.ID == RentalToUpdate.EquipmentID
+                                    select x.Quantity;
+
+                var count = from y in _context.Rentals
+                            where y.DateFor == RentalToUpdate.DateFor && y.EquipmentID == RentalToUpdate.EquipmentID
+                            select y;
+
+                if (count.Count() > quantityLimit.First())
+                {
+                    var temp = from z in _context.Equipments
+                               where z.ID == RentalToUpdate.EquipmentID
+                               select z.EquipmentName;
+
+                    Msg = "There are no more of " + temp.First().ToString() + " available. Please select a new item to rent.";
+
+                    PopulateEquipmentsDropDownList(_context, RentalToUpdate.ID);
+                    return Page();      // need to add error messages
+                }*/
             }
 
-            return Page();
+            PopulateEquipmentsDropDownList(_context, RentalToUpdate.ID);
+            return Page();      // need to add error messages
         }
 
         private bool RentalExists(int id)

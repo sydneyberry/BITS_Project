@@ -39,9 +39,9 @@ namespace BITS_Project.Data
             // need to add start and end times
             var reservations = new Reservation[]
             {
-                new Reservation{FirstName="Sydney", LastName="Berry", PhoneNumber="1234567890", SpaceID = 1},
-                new Reservation{FirstName="Jenny", LastName="Nguyen", PhoneNumber="1234567890", SpaceID = 2},
-                new Reservation{FirstName="Noah", LastName="Fence", PhoneNumber="1234567890", SpaceID = 3}
+                new Reservation{FirstName="Sydney", LastName="Berry", PhoneNumber="1234567890", StartTime=DateTime.Parse("2021-05-11, 12:30:00"), EndTime=DateTime.Parse("2021-05-11, 14:30:00"), SpaceID = 1},
+                new Reservation{FirstName="Jenny", LastName="Nguyen", PhoneNumber="1234567890", StartTime=DateTime.Parse("2021-08-11, 12:30:00"), EndTime=DateTime.Parse("2021-08-11, 14:30:00"), SpaceID = 2},
+                new Reservation{FirstName="Noah", LastName="Fence", PhoneNumber="1234567890", StartTime=DateTime.Parse("2021-10-11, 11:30:00"), EndTime=DateTime.Parse("2021-10-11, 14:30:00"), SpaceID = 3}
             };
             context.Reservations.AddRange(reservations);
             context.SaveChanges();
