@@ -10,7 +10,7 @@ namespace BITS_Project.Data
     {
         public static void Initialize(BitsContext context)
         {
-            if(context.Rentals.Any())
+            if (context.Rentals.Any())
             {
                 return; // DB has already been seeded
             }
@@ -45,7 +45,7 @@ namespace BITS_Project.Data
             };
             context.Reservations.AddRange(reservations);
             context.SaveChanges();
-            
+
             var tournaments = new Tournament[]
             {
                 new Tournament{SpaceID = 1, DateFor=DateTime.Parse("2021-04-01, 12:30:00"), ActivityType = Activity.Soccer, MaxTeams = 10, MaxTeamSize = 6, MinTeamSize = 4 },
@@ -65,7 +65,7 @@ namespace BITS_Project.Data
                 new Team{FirstName="Syd", LastName="Ber", TournamentID=1, PhoneNumber="1234567890", TeamName="COOL BUNNIES"},
                 new Team{FirstName="Jen", LastName="Nguy", TournamentID=1, PhoneNumber="1234567890", TeamName="COOL CATS"}
 
-            };          
+            };
             context.Teams.AddRange(teams);
             context.SaveChanges();
         }
