@@ -9,7 +9,7 @@
     }
 }
 
-<h4>Create New Rental</h4>
+<h4 class="pt-5">Create New Rental</h4>
 <p>BITS is happy to provide a variety of equipment available for rental. You can rent equipment in person at our front desk or online in advance using this form. Please read our rental policy <a href="">here</a>.</p>
 <hr />
 <div class="row">
@@ -50,6 +50,10 @@
         </form>
     </div>
 </div>
+<div class="row text-danger">
+    @Model.Msg
+</div>
+<div class="pb-5"></div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

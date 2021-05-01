@@ -41,15 +41,19 @@ namespace BITS_Project.Pages.Equipments
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            var emptyEquipment = new Equipment();
+
+            if(await TryUpdateModelAsync<Equipment>(
+                emptyEquipment,
+                "equipment",
+                s => s.Quantity, s => s.Description, s => s.EquipmentName))
             {
-                return Page();
+                _context.Equipments.Add(emptyEquipment);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("../Confirmation");
             }
 
-            _context.Equipments.Add(Equipment);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("../Confirmation");
+            return Page();
         }
     }
 }
