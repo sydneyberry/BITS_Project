@@ -14,13 +14,32 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Tournament.SpaceID" class="control-label"></label>
-                <input min=" 1 " max=" 5" asp-for="Tournament.SpaceID" class="form-control">    
-                </input>
 
+            <!--<div class="form-group">
+        <label asp-for="Tournament.SpaceID" class="control-label"></label>
+        <input min=" 1 " max="" asp-for="Tournament.SpaceID" class="form-control" />
+        <span asp-validation-for="Tournament.SpaceID" class="text-danger"></span>
+    </div>-->
+            <!--<div class="form-group">
+                <label asp-for="Tournament.SpaceID" class="control-label"></label>
+                <select asp-for="Tournament.SpaceID" class="form-control">
+                    <option selected="selected" value="">Select Field</option>
+                    @foreach (Models.SpaceType temp in Enum.GetValues(typeof(Models.SpaceType)))
+                    {
+                        <option value="@temp">@Model.GetSpaceName(temp)</option>
+                    }
+                </select>
                 <span asp-validation-for="Tournament.SpaceID" class="text-danger"></span>
-            </div>
+            </div>-->
+
+        <div class="form-group">
+            <label asp-for="Tournament.SpaceID" class="control-label"></label>
+            <select asp-for="Tournament.SpaceID" asp-items="Html.GetEnumSelectList<BITS_Project.Models.SpaceType>()" class="form-control">
+                <option selected="selected" value="">Select Activity</option>
+            </select>
+            <span asp-validation-for="Tournament.SpaceID" class="text-danger"></span>
+        </div>
+
             <div class="form-group">
                 <label asp-for="Tournament.DateFor" class="control-label"></label>
                 <input asp-for="Tournament.DateFor" class="form-control" />
@@ -35,17 +54,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.MaxTeams" class="control-label"></label>
-                <input min="2" asp-for="Tournament.MaxTeams" class="form-control"/>
+                <input min="2" asp-for="Tournament.MaxTeams" class="form-control" />
                 <span asp-validation-for="Tournament.MaxTeams" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.MaxTeamSize" class="control-label"></label>
-                <input min="1" asp-for="Tournament.MaxTeamSize" class="form-control"/>
+                <input min="1" asp-for="Tournament.MaxTeamSize" class="form-control" />
                 <span asp-validation-for="Tournament.MaxTeamSize" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tournament.MinTeamSize" class="control-label"></label>
-                <input min="0" asp-for="Tournament.MinTeamSize" class="form-control"/>
+                <input min="0" asp-for="Tournament.MinTeamSize" class="form-control" />
                 <span asp-validation-for="Tournament.MinTeamSize" class="text-danger"></span>
             </div>
             <div class="form-group">

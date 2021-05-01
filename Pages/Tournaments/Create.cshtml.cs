@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace BITS_Project.Pages.Tournaments
 {
-    public class CreateModel : PageModel
+    public class CreateModel : SpaceNamePageModel
     {
         private readonly BITS_Project.Data.BitsContext _context;
         public int SignedIn { get; set; }
@@ -55,6 +55,29 @@ namespace BITS_Project.Pages.Tournaments
             }
 
             return Page();
+        }
+
+        public string GetSpaceName(SpaceType space)
+        {
+            switch (space)
+            {
+                case SpaceType.Small_Field_1:
+                    return "Small Field 1";
+                case SpaceType.Small_Field_2:
+                    return "Small Field 2";
+                case SpaceType.Medium_Field_1:
+                    return "Medium Field 1";
+                case SpaceType.Medium_Field_2:
+                    return "Medium Field 2";
+                case SpaceType.Large_Field:
+                    return "Large Field";
+                case SpaceType.Batting_Cage:
+                    return "Batting Cage Area";
+                case SpaceType.Track:
+                    return "Track";
+                default:
+                    return "Other";
+            }
         }
     }
 }

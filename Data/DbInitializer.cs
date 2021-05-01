@@ -46,8 +46,6 @@ namespace BITS_Project.Data
             context.Reservations.AddRange(reservations);
             context.SaveChanges();
             
-
-
             var tournaments = new Tournament[]
             {
                 new Tournament{SpaceID = 1, DateFor=DateTime.Parse("2021-04-01, 12:30:00"), ActivityType = Activity.Soccer, MaxTeams = 10, MaxTeamSize = 6, MinTeamSize = 4 },

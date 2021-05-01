@@ -49,6 +49,19 @@
             </div>
         </div>
     </div>
+    <div class="pt-5">
+        <a asp-page="./Index" asp-route-filter="@true" class="form-group">
+            <label class="control-label">Show Only Upcoming Tournaments</label>
+            @if (Model.filtered)
+            {
+                <input type="checkbox" checked />
+            }
+            else
+            {
+                <input type="checkbox" />
+            }
+        </a>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -70,44 +83,34 @@
         <tbody>
             @foreach (var item in Model.Tournament)
             {
-            <tr>
-                <td>
-                    @Model.GetSpaceName(Model._context, item.SpaceID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateFor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ActivityType)
-                </td>
-
-                @if (@Html.DisplayFor(modelItem => item.MinTeamSize) == @Html.DisplayFor(modelItem => item.MaxTeamSize))
-                {
-                    <td> @Html.DisplayFor(modelItem => item.MinTeamSize)</td>
-
-                }
-                else
-                {
-                    Console.WriteLine("hello");
+                <tr>
+                    <td>
+                        @Model.GetSpaceName(item.SpaceID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateFor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActivityType)
+                    </td>
                     <td>@Html.DisplayFor(modelItem => item.MinTeamSize) - @Html.DisplayFor(modelItem => item.MaxTeamSize) Players</td>
-                }
 
-                @if (Model.SignedIn == 1)
-                {
-                    <td>
-                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        <a asp-page"" asp-route-id="@item.ID">Team Sign-Up</a>
-                    </td>
-                }
+                    @if (Model.SignedIn == 1)
+                    {
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a asp-page="" asp-route-id="@item.ID">Team Sign-Up</a>
+                        </td>
+                    }
 
-            </tr>
+                </tr>
             }
         </tbody>
     </table>
